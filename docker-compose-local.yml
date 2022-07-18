@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+  sct_label_utils-web:
+    image: simcore/services/dynamic/sct_label_utils-web:1.0.0
+    ports:
+      - "28080:28080"
+    environment:
+      - APP_HOSTNAME=sct_label_utils-app
+    volumes:
+      - ${PWD}/web/config/nginx.conf:/etc/nginx/templates/default.conf.template
+
+  sct_label_utils-app:
+    image: simcore/services/dynamic/sct_label_utils-app:1.0.0
+    ports:
+       - "5900:5900"
+    environment:
+      - DY_SIDECAR_PATH_INPUTS=/tmp/inputs
+      - DY_SIDECAR_PATH_OUTPUTS=/tmp/outputs
+    volumes:
+      - ${PWD}/validation/workspace:/home/scu/work/workspace
+      - ${PWD}/validation/inputs:/tmp/inputs
+      - ${PWD}/validation/outputs:/tmp/outputs
