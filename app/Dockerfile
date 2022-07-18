@@ -71,7 +71,6 @@ ENV SCT_DIR=/sct
 COPY config/menu.xml /etc/xdg/openbox/
 COPY config/supervisord.conf /etc/
 COPY config/start.sh /home/scu
-COPY config/start.py /home/scu
 
 ## workind directory and permissions
 WORKDIR /home/scu/work
