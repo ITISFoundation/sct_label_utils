@@ -1,0 +1,14 @@
+name: "Label Utils (Spinal Cord Toolbox)-app"
+thumbnail: https://repository-images.githubusercontent.com/20361729/e268cd80-ad32-11e9-9faf-4cd1193b6144
+description: "Spinal Cord Toolbox simple GUI utility to label spinal cord images"
+key: simcore/services/dynamic/sct_label_utils-app
+version: 1.0.0
+integration-version: 2.0.0
+type: dynamic
+authors:
+  - name: "Elisabetta Iavarone"
+    email: "iavarone@itis.swiss"
+    affiliation: "IT'IS Foundation"
+contact: "iavarone@itis.swiss"
+inputs: {}
+outputs: {}

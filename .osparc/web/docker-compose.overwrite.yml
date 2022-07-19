@@ -1,0 +1,5 @@
+services:
+  "sct_label_utils-web":
+    build:
+      context: ./web
+      dockerfile: Dockerfile
