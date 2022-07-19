@@ -52,13 +52,10 @@ ENV LANG=C.UTF-8
 
 FROM base AS production
 
-# TODO: Change according to you needs. 
-# The start script relies on inotifywait
-# If not inputs are found, show a popup with notify-send (libnotify-bin)
+# Install dependencies required to build sct
 RUN apt-get update -y && \
-    apt-get install -y --no-install-recommends gcc inotify-tools libnotify-bin && \
+    apt-get install -y --no-install-recommends gcc && \
     rm -rf /var/lib/apt/lists
-
 
 # Install sct
 RUN git clone https://github.com/spinalcordtoolbox/spinalcordtoolbox.git sct && \
