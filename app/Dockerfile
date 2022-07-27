@@ -13,6 +13,7 @@ RUN apt-get update -y && \
     openbox \
     procps \
     python3 \
+    python3-tk \ 
     python3-pip \
     supervisor \
     tigervnc-standalone-server \
@@ -65,9 +66,13 @@ RUN git clone https://github.com/spinalcordtoolbox/spinalcordtoolbox.git sct && 
 ENV PATH="/sct/bin:${PATH}"
 ENV SCT_DIR=/sct
 
+# Install packages to display messages to users (e.g. to provide the required inputs)
+RUN apt-get install python3-tk
+
 COPY config/menu.xml /etc/xdg/openbox/
 COPY config/supervisord.conf /etc/
 COPY config/start.sh /home/scu
+COPY config/check_inputs.py /home/scu/
 
 ## workind directory and permissions
 WORKDIR /home/scu/work
