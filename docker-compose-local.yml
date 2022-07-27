@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   sct_label_utils-web:
-    image: simcore/services/dynamic/sct_label_utils-web:1.0.0
+    image: simcore/services/dynamic/sct_label_utils-web:1.0.1
     ports:
       - "28080:28080"
     environment:
@@ -10,7 +10,7 @@ services:
       - ${PWD}/web/config/nginx.conf:/etc/nginx/templates/default.conf.template
 
   sct_label_utils-app:
-    image: simcore/services/dynamic/sct_label_utils-app:1.0.0
+    image: simcore/services/dynamic/sct_label_utils-app:1.0.1
     ports:
        - "5900:5900"
     environment:
