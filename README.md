@@ -1,7 +1,5 @@
 # Label Utils (SCT)
-
-Spinal Cord Toolbox (SCT) simple GUI utility to label spinal cord images. 
-
+Simple GUI utility to label spinal cord images. This is a subset of all the commands available with the Spinal Cord Toolbox.
 Spinal Cord Toolbox (SCT) is a comprehensive, free and open-source set of command-line tools dedicated to the processing and analysis of spinal cord MRI data see the [GitHub Repo](https://github.com/spinalcordtoolbox/spinalcordtoolbox) for more information. 
 
 ## For developers: how the service app works
