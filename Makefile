@@ -13,7 +13,7 @@ define _bumpversion
 	# upgrades as $(subst $(1),,$@) version, commits and tags
 	@docker run -it --rm -v $(PWD):/sct_label_utils \
 		-u $(shell id -u):$(shell id -g) \
-		itisfoundation/ci-service-integration-library:v1.0.1-dev-32 \
+		itisfoundation/ci-service-integration-library:v2.0.9-dev \
 		sh -c "cd /sct_label_utils && bump2version --verbose --list --config-file $(1) $(subst $(2),,$@)"
 endef
 
@@ -28,19 +28,19 @@ version-patch version-minor version-major: .bumpversion.cfg ## increases service
 compose-spec: ## runs ooil to assemble the docker-compose.yml file
 	@docker run -it --rm -v $(PWD):/sct_label_utils \
 		-u $(shell id -u):$(shell id -g) \
-		itisfoundation/ci-service-integration-library:v1.0.1-dev-32 \
+		itisfoundation/ci-service-integration-library:v2.0.9-dev \
 		sh -c "cd /sct_label_utils && ooil compose"
 
 .PHONY: build
 build: compose-spec ## build docker images
-	docker-compose build
+	docker compose build
 
 #.PHONY: run-local
 run-local: ## runs images with local configuration. TODO: make application start with inputs provided. Not it just waits for the input
 	rm -f sct_label_utils.zip
 	smbget -U ${DEVOPS_USER}%${DEVOPS_PASSWORD} smb://biobackup.speag.com/osparc/data/sct_label_utils/sct_label_utils.zip -o sct_label_utils.zip
 	unzip -o sct_label_utils.zip -d validation/input
-	docker-compose --file docker-compose-local.yml up
+	docker compose --file docker-compose-local.yml up
 
 .PHONY: shell-app up
 shell-app: ## enter app container
